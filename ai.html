@@ -1,20 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <main class="ai-container">
-    <header class="ai-header">
-        <h2>Second Brain</h2>
-        <p>Ask me to summarize, research, or guide your wellness journey.</p>
-    </header>
-<link rel="stylesheet" href="ai.css">
-    <!-- This is where the AI "thinks" and talks -->
-    <div id="aiResponseArea" class="ai-chat-window">
-        <div class="bot-msg">Hello! I'm your Second Brain. What are we exploring today?</div>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Brain | Portfolio Project</title>
+    <!-- Linking your CSS file -->
+    <link rel="stylesheet" href="ai.css">
+</head>
+<body>
 
-    <!-- The Input Field -->
-    <div class="ai-input-wrapper">
-        <textarea id="aiPrompt" placeholder="Paste a long article or ask a health question..."></textarea>
-        <button id="askBtn" onclick="queryAI()">Consult Brain ✨</button>
-    </div>
+    <main class="ai-container">
+        <!-- Header Section -->
+        <header class="ai-header">
+            <h2>Second Brain</h2>
+            <p>Ask me for guidance, research, or a wellness insight.</p>
+        </header>
+
+        <!-- Chat Window where messages appear -->
+        <div id="aiResponseArea" class="ai-chat-window">
+            <div class="bot-msg">Hello! I'm your Second Brain. What are we exploring today?</div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="ai-input-wrapper">
+            <textarea id="aiPrompt" placeholder="Ask a health question or seek guidance..."></textarea>
+            <!-- Note: ID matches the 'askBtn' used in your JS -->
+            <button id="askBtn" onclick="queryAI()">Consult Brain ✨</button>
+        </div>
+    </main>
+
+    <!-- Moving the script to the bottom ensures the button is "built" before the code runs -->
     <script src="ai.js"></script>
-</main>
+</body>
+</html>
+
