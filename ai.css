@@ -54,7 +54,7 @@
 .bot-msg.thinking {
     font-style: italic;
     opacity: 0.7;
-    animation: pulse 1.5s infinite ease-in-out;
+    animation: pulse 3s infinite ease-in-out;
 }
 
 @keyframes pulse {
@@ -62,6 +62,7 @@
     50% { opacity: 1; }
     100% { opacity: 0.5; }
 }
+
 
 
 
