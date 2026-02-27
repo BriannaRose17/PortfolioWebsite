@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<nav class="top-nav">
-    <a href="https://briannarose17.github.io/PortfolioWebsite/Project.html" class="back-btn">← Back to Projects</a>
-</nav>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Second Brain | Portfolio Project</title>
-
     <link rel="stylesheet" href="ai.css">
 </head>
 <body>
+
+    <nav class="top-nav">
+        <a href="https://briannarose17.github.io/PortfolioWebsite/Project.html" class="back-btn">← Back to Projects</a>
+    </nav>
 
     <main class="ai-container">
    
@@ -19,25 +19,23 @@
             <p>Ask me for guidance, research, or a wellness insight.</p>
         </header>
 
-     
         <div id="aiResponseArea" class="ai-chat-window">
             <div class="bot-msg">Hello! I'm your Second Brain. What are we exploring today?</div>
         </div>
 
-    
         <div class="ai-input-wrapper">
+           
             <textarea id="aiPrompt" placeholder="Ask a health question or seek guidance..."></textarea>
-         
+                
             <button id="askBtn" onclick="queryAI()">Consult Brain ✨</button>
         </div>
-      <div id="chat"></div>
 
     </main>
-
 
     <script src="ai.js"></script>
 </body>
 </html>
+
 
 
 
