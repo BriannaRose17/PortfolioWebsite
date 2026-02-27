@@ -1,16 +1,17 @@
+// --- 1. The Main Logic (Your Function) ---
 function queryAI() {
-    console.log("Button clicked! Starting queryAI function..."); // Log for testing
-
     const promptInput = document.getElementById('aiPrompt');
     const btn = document.getElementById('askBtn');
 
-    // 1. Safety Check: If the box is empty, don't do anything
+    
     if (!promptInput || !promptInput.value.trim()) {
-        console.log("Input is empty. Doing nothing.");
         return;
     }
 
-    // 2. The "Brain" Responses (No internet/API needed!)
+    
+    addMessageToChat(promptInput.value, 'user');
+
+    
     const responses = [
         "The stars say: Absolutely! ✨",
         "My internal sensors say: Not likely. 🤖",
@@ -19,17 +20,46 @@ function queryAI() {
         "Error 404: Answer not found in this dimension. 🌌"
     ];
 
-    // 3. Pick a random answer
+    
     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-    console.log("Brain picked: " + randomResponse);
 
-    // 4. Show the answer in the chat
-    addMessageToChat(randomResponse);
+    
+    setTimeout(() => {
+        addMessageToChat(randomResponse, 'ai');
+    }, 500);
 
-    // 5. Clear the input so you can type again
+    
     promptInput.value = "";
-    btn.innerText = "Consult Brain ✨";
 }
+
+// --- 2. The Display Function ---
+function addMessageToChat(message, sender) {
+    const chatWindow = document.getElementById('chatWindow');
+    
+    const messageElement = document.createElement('div');
+    
+    messageElement.classList.add('message', sender);
+    messageElement.innerText = message;
+
+    chatWindow.appendChild(messageElement);
+
+    
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// --- 3. Event Listeners (Making the button work) ---
+
+
+document.getElementById('askBtn').addEventListener('click', queryAI);
+
+
+document.getElementById('aiPrompt').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        queryAI();
+    }
+});
+
+
 
 
 
