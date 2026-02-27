@@ -1,17 +1,19 @@
-// --- 1. The Main Logic (Your Function) ---
 function queryAI() {
     const promptInput = document.getElementById('aiPrompt');
-    const btn = document.getElementById('askBtn');
+    const responseArea = document.getElementById('aiResponseArea');
 
-    
+    // 1. Safety Check: If the box is empty, don't do anything
     if (!promptInput || !promptInput.value.trim()) {
         return;
     }
 
-    
-    addMessageToChat(promptInput.value, 'user');
+    // 2. Display the USER'S message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'user-msg'; 
+    userMsg.innerText = promptInput.value;
+    responseArea.appendChild(userMsg);
 
-    
+    // 3. The "Brain" Responses
     const responses = [
         "The stars say: Absolutely! ✨",
         "My internal sensors say: Not likely. 🤖",
@@ -20,44 +22,24 @@ function queryAI() {
         "Error 404: Answer not found in this dimension. 🌌"
     ];
 
-    
+    // 4. Pick a random answer
     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
 
-    
+    // 5. Show the AI answer in the chat after a slight delay
     setTimeout(() => {
-        addMessageToChat(randomResponse, 'ai');
-    }, 500);
+        const botMsg = document.createElement('div');
+        botMsg.className = 'bot-msg'; 
+        botMsg.innerText = randomResponse;
+        responseArea.appendChild(botMsg);
+        
+        responseArea.scrollTop = responseArea.scrollHeight;
+    }, 400);
 
-    
+    // 6. Clear the input
     promptInput.value = "";
 }
 
-// --- 2. The Display Function ---
-function addMessageToChat(message, sender) {
-    const chatWindow = document.getElementById('chatWindow');
-    
-    const messageElement = document.createElement('div');
-    
-    messageElement.classList.add('message', sender);
-    messageElement.innerText = message;
 
-    chatWindow.appendChild(messageElement);
-
-    
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-// --- 3. Event Listeners (Making the button work) ---
-
-
-document.getElementById('askBtn').addEventListener('click', queryAI);
-
-
-document.getElementById('aiPrompt').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        queryAI();
-    }
-});
 
 
 
