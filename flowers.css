@@ -8,6 +8,33 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+/* Top Navigation Styling */
+.top-nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100; /* Ensures it stays above the sidebar and canvas */
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #E29595; /* Rose Pink to match your theme */
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #D1E2D8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #F8FBF9;
+    color: #D48484; /* Darker rose on hover */
+    transform: translateX(-3px); /* Subtle nudge effect */
+}
+
 
 body { 
     font-family: 'Segoe UI', sans-serif; 
@@ -184,3 +211,4 @@ input[type=range], input[type=color], select {
     .sidebar, h1, p { display: none; } 
     .canvas { border: none; box-shadow: none; width: 100vw; height: 100vh; } 
 }
+
