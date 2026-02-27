@@ -35,7 +35,9 @@ function addMessageToChat(text) {
     responseArea.appendChild(aiMessage);
     
     // Auto-scroll to the bottom of the chat window
-    responseArea.scrollTop = responseArea.scrollHeight;
+    responseArea.scrollTop = responseArea.scrollHeight; 
+}
+
 
 
 
