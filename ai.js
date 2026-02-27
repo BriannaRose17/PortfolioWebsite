@@ -30,6 +30,46 @@ function queryAI() {
     promptInput.value = "";
     btn.innerText = "Consult Brain ✨";
 }
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chat = document.getElementById("chat");
+
+    const userText = input.value;
+
+    if (userText.trim() === "") return;
+
+    // Create user message
+    const userMessage = document.createElement("div");
+    userMessage.className = "user-message";
+    userMessage.textContent = userText;
+
+    chat.appendChild(userMessage);
+
+    // Mock AI response
+    const aiMessage = document.createElement("div");
+    aiMessage.className = "ai-message";
+
+    const responses = [
+        "Interesting question.",
+        "Tell me more.",
+        "I understand.",
+        "That makes sense.",
+        "Can you clarify?"
+    ];
+
+    const randomResponse =
+        responses[Math.floor(Math.random() * responses.length)];
+
+    aiMessage.textContent = randomResponse;
+
+    chat.appendChild(aiMessage);
+
+    // Clear input
+    input.value = "";
+
+    // Auto scroll to bottom
+    chat.scrollTop = chat.scrollHeight;
+}
 
 function addMessageToChat(text) {
     const responseArea = document.getElementById('aiResponseArea');
