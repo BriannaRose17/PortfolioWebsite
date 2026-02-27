@@ -20,7 +20,7 @@ function queryAI() {
     // 4. Show the answer in the chat
     addMessageToChat(randomResponse);
 
-    // 5. Clear the input so you can type again
+    // 5. Clear the input and reset button text
     promptInput.value = "";
     btn.innerText = "Consult Brain ✨";
 }
@@ -34,9 +34,8 @@ function addMessageToChat(text) {
     aiMessage.innerText = text;
     responseArea.appendChild(aiMessage);
     
-    // Scroll to the bottom so you can see the new message
+    // Auto-scroll to the bottom of the chat window
     responseArea.scrollTop = responseArea.scrollHeight;
-}
 
 
 
