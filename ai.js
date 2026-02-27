@@ -1,63 +1,31 @@
 // 1. Using a faster, more reliable model for free accounts
-const API_KEY = "hf_placeholder"; 
-const MODEL_URL = "https://api-inference.huggingface.co";
+// No API Key needed - completely safe for GitHub!
 
-async function queryAI() {
+function queryAI() {
     const promptInput = document.getElementById('aiPrompt');
-    const responseArea = document.getElementById('aiResponseArea');
     const btn = document.getElementById('askBtn');
 
-    if (!promptInput.value) return;
+    // If the user typed nothing, do nothing
+    if (promptInput.value.trim() === "") return;
 
-    btn.innerText = "Thinking... 🧠";
-    btn.disabled = true;
+    // 1. Create a list of fun "Brain" responses
+    const responses = [
+        "The stars say: Absolutely! ✨",
+        "My internal sensors say: Not likely. 🤖",
+        "Ask me again after I've had some digital coffee. ☕",
+        "That's a fascinating thought! 🧠",
+        "Error 404: Answer not found in this dimension. 🌌"
+    ];
 
-    // We'll try up to 3 times in case the model is "warming up"
-    let attempts = 0;
-    const maxAttempts = 3;
+    // 2. Pick one at random
+    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
 
-    while (attempts < maxAttempts) {
-        try {
-            const response = await fetch(MODEL_URL, {
-                headers: { 
-                    "Authorization": `Bearer ${API_KEY}`,
-                    "Content-Type": "application/json" 
-                },
-                method: "POST",
-                body: JSON.stringify({ 
-                    // T5 expects a prefix like "summarize: " for better results
-                    inputs: "summarize: " + promptInput.value,
-                    options: { wait_for_model: true } 
-                }),
-            });
+    // 3. Send it to the chat
+    addMessageToChat(randomResponse);
 
-            const result = await response.json();
-
-            // If the model is still loading, it returns a 503 or a specific message
-            if (response.status === 503 || result.error?.includes("loading")) {
-                attempts++;
-                btn.innerText = `Waking up brain... (${attempts}/${maxAttempts})`;
-                await new Promise(resolve => setTimeout(resolve, 5000)); // Wait 5 seconds before retry
-                continue;
-            }
-
-            // Display the answer (T5 returns an array with 'summary_text')
-            const aiText = result[0]?.summary_text || "I'm awake, but I didn't understand that. Try again!";
-            addMessageToChat(aiText);
-            break; // Success! Exit the loop
-
-               } catch (error) {
-            console.error("DEBUG:", error);
-            // This alert will tell us the EXACT error (401, 404, or 503)
-            alert("The AI said: " + error.message);
-            attempts++;
-        }
-
-    }
-
+    // 4. Reset the UI
+    promptInput.value = ""; 
     btn.innerText = "Consult Brain ✨";
-    btn.disabled = false;
-    promptInput.value = "";
 }
 
 function addMessageToChat(text) {
@@ -66,7 +34,10 @@ function addMessageToChat(text) {
     aiMessage.className = 'bot-msg';
     aiMessage.innerText = text;
     responseArea.appendChild(aiMessage);
+    
+    // Auto-scroll to the bottom of the chat
     responseArea.scrollTop = responseArea.scrollHeight;
 }
+
 
 
