@@ -1,9 +1,14 @@
 function queryAI() {
+    console.log("Button clicked! Starting queryAI function..."); // Log for testing
+
     const promptInput = document.getElementById('aiPrompt');
     const btn = document.getElementById('askBtn');
 
     // 1. Safety Check: If the box is empty, don't do anything
-    if (!promptInput || !promptInput.value.trim()) return;
+    if (!promptInput || !promptInput.value.trim()) {
+        console.log("Input is empty. Doing nothing.");
+        return;
+    }
 
     // 2. The "Brain" Responses (No internet/API needed!)
     const responses = [
@@ -16,27 +21,33 @@ function queryAI() {
 
     // 3. Pick a random answer
     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    console.log("Brain picked: " + randomResponse);
 
     // 4. Show the answer in the chat
     addMessageToChat(randomResponse);
 
-    // 5. Clear the input and reset button text
+    // 5. Clear the input so you can type again
     promptInput.value = "";
     btn.innerText = "Consult Brain ✨";
 }
 
 function addMessageToChat(text) {
     const responseArea = document.getElementById('aiResponseArea');
-    if (!responseArea) return;
+    if (!responseArea) {
+        console.error("Could not find aiResponseArea!");
+        return;
+    }
 
     const aiMessage = document.createElement('div');
     aiMessage.className = 'bot-msg';
     aiMessage.innerText = text;
     responseArea.appendChild(aiMessage);
     
-    // Auto-scroll to the bottom of the chat window
-    responseArea.scrollTop = responseArea.scrollHeight; 
+    // Auto-scroll to the bottom
+    responseArea.scrollTop = responseArea.scrollHeight;
 }
+
+
 
 
 
