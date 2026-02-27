@@ -137,7 +137,7 @@ header::before {
   width: 900px;       
   height: 1500px;    
   
-  background-image: url('images/Border.png');
+  background-image: url('Border.png');
   background-size: contain; 
   background-repeat: no-repeat;
   background-position: top center;
@@ -151,6 +151,7 @@ header h1, header p, header a {
   position: relative; 
   z-index: 1;        
 }
+
 
 
 
