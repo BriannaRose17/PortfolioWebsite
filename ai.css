@@ -51,6 +51,20 @@
     animation: fadeIn 0.4s ease;
 }
 
+.bot-msg.thinking {
+    font-style: italic;
+    opacity: 0.7;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+
+
 
 
 
