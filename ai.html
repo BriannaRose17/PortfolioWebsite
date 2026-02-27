@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<nav class="top-nav">
+    <a href="https://your-portfolio-link.com" class="back-btn">← Back to Projects</a>
+</nav>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Second Brain | Portfolio Project</title>
-    <!-- Linking your CSS file -->
+
     <link rel="stylesheet" href="ai.css">
 </head>
 <body>
 
     <main class="ai-container">
-        <!-- Header Section -->
+   
         <header class="ai-header">
             <h2>Second Brain</h2>
             <p>Ask me for guidance, research, or a wellness insight.</p>
         </header>
 
-        <!-- Chat Window where messages appear -->
+     
         <div id="aiResponseArea" class="ai-chat-window">
             <div class="bot-msg">Hello! I'm your Second Brain. What are we exploring today?</div>
         </div>
 
-        <!-- Input Section -->
+    
         <div class="ai-input-wrapper">
             <textarea id="aiPrompt" placeholder="Ask a health question or seek guidance..."></textarea>
-            <!-- Note: ID matches the 'askBtn' used in your JS -->
+         
             <button id="askBtn" onclick="queryAI()">Consult Brain ✨</button>
         </div>
     </main>
 
-    <!-- Moving the script to the bottom ensures the button is "built" before the code runs -->
+
     <script src="ai.js"></script>
 </body>
 </html>
+
 
