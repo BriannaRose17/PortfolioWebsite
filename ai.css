@@ -1,33 +1,47 @@
-
-/* 1. Global Reset - Add this to the top of your file */
+/* 1. Global Layout & Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* 2. Fixed Rose Pink Button */
-.back-projects-btn {
-    background-color: #E29595; /* Rose Pink */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    margin-bottom: 20px;
+body {
+    background-color: #F8FBF9; /* Subtle background for contrast */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.back-projects-btn:hover {
-    background-color: #D48484; /* Slightly darker rose on hover */
-    transform: translateY(-1px);
+/* 2. Navigation & Back Button */
+.top-nav {
+    padding: 20px;
 }
 
-/* 3. Chat Window Container */
+.back-btn {
+    text-decoration: none;
+    color: #E29595; /* ROSE PINK COLOR */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #D48484; /* Darker rose on hover */
+}
+
+/* 3. Main Container */
+.ai-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.ai-header {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2D3A30;
+}
+
+/* 4. Chat Window - Flexbox Magic */
 .ai-chat-window {
-    height: 400px; /* Increased slightly for better view */
+    height: 350px;
     overflow-y: auto;
     background: white;
     border-radius: 15px;
@@ -36,27 +50,17 @@
     border: 1px solid #D1E2D8;
     display: flex;    
     flex-direction: column;
-    gap: 10px; /* Space between bubbles */
+    gap: 12px;
 }
 
-/* 4. Message Bubbles - Fixed "Elongated" Issue */
+/* 5. Message Bubbles - Fixed Elongation */
 .user-msg, .bot-msg {
     padding: 12px 16px;
-    margin-bottom: 5px;
     max-width: 80%;
-    width: fit-content; /* THIS FIXES THE ELONGATION */
+    width: fit-content; /* PREVENTS STRETCHING */
     word-wrap: break-word;
+    line-height: 1.5;
     animation: fadeIn 0.4s ease forwards;
-    line-height: 1.4;
-}
-
-.user-msg {
-    align-self: flex-end; 
-    background: #D1E2D8;
-    border-radius: 15px 15px 0px 15px;
-    color: #2D3A30;
-    border-right: 4px solid #8EB69B;
-    text-align: left; /* Keep text readable inside the bubble */
 }
 
 .bot-msg {
@@ -67,39 +71,52 @@
     border-left: 4px solid #8EB69B;
 }
 
-/* 5. Keyframes & Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.user-msg {
+    align-self: flex-end; 
+    background: #D1E2D8;
+    border-radius: 15px 15px 0px 15px;
+    color: #2D3A30;
+    border-right: 4px solid #8EB69B;
 }
 
-.bot-msg.thinking {
-    font-style: italic;
-    opacity: 0.7;
-    animation: pulse 1.5s infinite ease-in-out;
+/* 6. Input Area Styling */
+.ai-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+#aiPrompt {
+    width: 100%;
+    height: 80px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #D1E2D8;
+    resize: none;
+    font-family: inherit;
 }
 
-/* 6. The Ask Button */
 #askBtn {
     background: #8EB69B;
     color: white;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border-radius: 10px;
     border: none;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    margin-top: 10px;
-    transition: opacity 0.2s;
+    transition: background 0.3s ease;
 }
 
 #askBtn:hover {
-    opacity: 0.9;
+    background: #7DA68A;
+}
+
+/* 7. Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
