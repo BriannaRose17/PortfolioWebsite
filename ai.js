@@ -71,21 +71,8 @@ function sendMessage() {
     chat.scrollTop = chat.scrollHeight;
 }
 
-function addMessageToChat(text) {
-    const responseArea = document.getElementById('aiResponseArea');
-    if (!responseArea) {
-        console.error("Could not find aiResponseArea!");
-        return;
-    }
 
-    const aiMessage = document.createElement('div');
-    aiMessage.className = 'bot-msg';
-    aiMessage.innerText = text;
-    responseArea.appendChild(aiMessage);
-    
-    // Auto-scroll to the bottom
-    responseArea.scrollTop = responseArea.scrollHeight;
-}
+
 
 
 
