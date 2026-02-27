@@ -3,9 +3,9 @@
   top: 20px;
   left: 20px;
   text-decoration: none;
-  color: #ff6b6b; /* Use a color that matches your theme */
+  color: #ff6b6b; 
   font-weight: bold;
-  z-index: 100; /* Ensure it stays above your rose border */
+  z-index: 100; 
 }
 
 .back-btn:hover {
@@ -62,10 +62,26 @@ textarea {
     animation: fadeIn 0.4s ease;
 }
 
+.user-msg {
+    background: #D1E2D8; /* Light Sage */
+    padding: 15px;
+    border-radius: 15px 15px 0px 15px; 
+    margin-bottom: 15px;
+    align-self: flex-end; 
+    color: #2D3A30;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: right;
+    border-right: 4px solid #8EB69B;
+    animation: fadeIn 0.4s ease;
+}
+
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 
