@@ -26,28 +26,32 @@ body {
     z-index: 9999; /* Higher than everything else */
 }
 
-.back-btn {
-    text-decoration: none;
-    /* Use the Rose Pink Hex Code */
-    color: #E29595 !important; 
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding: 12px 20px;
-    background: white;
-    border-radius: 50px; 
-    /* A soft sage border to match your palette */
-    border: 2px solid #D1E2D8; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+/* 1. Target ALL states (Standard, Visited, and Link) */
+a.back-btn, 
+a.back-btn:link, 
+a.back-btn:visited {
+    color: #E29595 !important; /* The Rose Pink Text */
+    background-color: #ffffff !important; /* White background */
+    text-decoration: none !important;
+    border: 2px solid #D1E2D8 !important; /* Sage Border */
+    
+    /* Layout & Polish */
     display: inline-block;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease-in-out;
 }
 
-.back-btn:hover {
-    /* Swap colors on hover for a "fill" effect */
-    background: #E29595;
-    color: white !important;
-    border-color: #E29595;
-    transform: translateX(-5px); /* Subtle nudge to the left */
+/* 2. Target the Hover and Active state */
+a.back-btn:hover, 
+a.back-btn:active {
+    background-color: #E29595 !important; /* Fills with Rose Pink */
+    color: #ffffff !important; /* Text turns white */
+    border-color: #E29595 !important;
+    transform: translateX(-5px);
 }
 
 /* --- 3. SIDEBAR & TOOLS --- */
@@ -101,6 +105,7 @@ input[type=range], select { width: 100%; margin-top: 5px; cursor: pointer; }
 .clear { background: var(--secondary); }
 
 @media print { .sidebar, .top-nav, h1, p { display: none; } .canvas { width: 100vw; height: 100vh; } }
+
 
 
 
