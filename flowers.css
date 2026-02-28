@@ -28,23 +28,26 @@ body {
 
 .back-btn {
     text-decoration: none;
-    color: var(--secondary) !important; /* Forces the Rose Pink */
+    /* Use the Rose Pink Hex Code */
+    color: #E29595 !important; 
     font-weight: bold;
     font-size: 0.9rem;
     padding: 12px 20px;
     background: white;
-    border-radius: 50px; /* Rounded pill style */
-    border: 2px solid #D1E2D8;
+    border-radius: 50px; 
+    /* A soft sage border to match your palette */
+    border: 2px solid #D1E2D8; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
 .back-btn:hover {
-    background: var(--secondary);
+    /* Swap colors on hover for a "fill" effect */
+    background: #E29595;
     color: white !important;
-    transform: translateX(-5px);
-    border-color: var(--secondary);
+    border-color: #E29595;
+    transform: translateX(-5px); /* Subtle nudge to the left */
 }
 
 /* --- 3. SIDEBAR & TOOLS --- */
@@ -98,6 +101,7 @@ input[type=range], select { width: 100%; margin-top: 5px; cursor: pointer; }
 .clear { background: var(--secondary); }
 
 @media print { .sidebar, .top-nav, h1, p { display: none; } .canvas { width: 100vw; height: 100vh; } }
+
 
 
 
